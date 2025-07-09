@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app1:
+    build: .
+    deploy:
+      replicas: 2
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.app1.rule=Host(`app1.docker.localhost`)"
+      - "traefik.http.routers.app1.entrypoints=websecure"
+      - "traefik.http.routers.app1.tls=true"
+      - "traefik.http.services.app1.loadbalancer.server.port=5000"
+
+networks:
+  proxy:
+    external: true
