@@ -101,7 +101,7 @@ services:
 
   # Money Manager App
   app3:
-    image: phonepasit9/money-manager
+    image: phonepasit9/money-manager:2.0
     restart: unless-stopped
     deploy:
       replicas: 2
