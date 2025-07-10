@@ -40,7 +40,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.phpmyadmin.rule=Host(`db.rapterxcode.online`)"
       - "traefik.http.routers.phpmyadmin.entrypoints=web"
-      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=8011"
 
 networks:
   db_network:
