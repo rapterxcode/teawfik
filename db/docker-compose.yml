@@ -32,7 +32,7 @@ services:
       PMA_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "8080:80"
+      - "8011:80"
     networks:
       - db_network
       - proxy
