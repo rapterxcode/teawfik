@@ -18,6 +18,15 @@ services:
     networks:
       - db_network
       - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.tcp.routers.mysql-router.entrypoints=mysql"
+      # IMPORTANT: If using MySQL 8.1.0+ and sending SNI, use your subdomain here:
+      # - "traefik.tcp.routers.mysql-router.rule=HostSNI(`db.rapterxcode.online`)"
+      # Otherwise, for single DB on 3306, HostSNI(`*`) is usually fine.
+      - "traefik.tcp.routers.mysql-router.rule=HostSNI(`*`)" # Keep this if you're unsure about client SNI or on older MySQL
+      - "traefik.tcp.routers.mysql-router.service=mysql-service"
+      - "traefik.tcp.services.mysql-service.loadbalancer.server.port=3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
