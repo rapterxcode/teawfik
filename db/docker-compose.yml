@@ -38,7 +38,7 @@ services:
       - proxy
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`db.docker.localhost`)"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`db.rapterxcode.online`)"
       - "traefik.http.routers.phpmyadmin.entrypoints=web"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
 
